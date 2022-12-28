@@ -1,4 +1,24 @@
 <h1>About</h1>
+<p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/Brython.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/072b6b918dad8c1c6022c53a9f17acc4/raw/77d38f70839c31af01a88452e8f500cbcd3cc650/w5_hw.py">W5_密碼產生器</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre>
+<pre>心得:<br/><br/><br/></pre>
+<p></p>
 <p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
 <h1>cp2022</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
@@ -290,10 +310,39 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div class="gtx-trans-icon"></div>
 </div>
 <h1>HW</h1>
-<h2>W5</h2>
-<p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/cp2022.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/377cfa22ffe45b8f55dbcca0e812a440/raw/e57802b95c9712b5cec14a91be574828c3706e0b/w5%2520random.py">密碼亂數</a></p>
+<h2>w15</h2>
+<h2>w16</h2>
 <h2>W6</h2>
-<p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/cp2022.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/c526568161d13ce11da0d0ae416bd752/raw/e929193f287f9234c6bbac09f7ca39b3cf5d86a0/w6_%25E6%258A%25BD%25E9%25BB%259E.py">抽點</a></p><h2>W10</h2>
+<p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/Brython.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/c526568161d13ce11da0d0ae416bd752/raw/948cd1f788b9855d2f2d7f216a27c980354039a6/w6_hw.py">抽點</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
+'''多行註解則可以透過三個單引號前後標註字串或文字段落內容, 
+也可以使用三個雙引號作為多行註解的標註
+'''
+# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
+import random
+cp1b = "0761"
+# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
+url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + cp1b + "&amp;column=True"
+# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
+# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
+# url 所屬的網站, 乃 69 中的一台虛擬主機 8/10ff-0-1-2, 並利用 Get 從教務主機取回課程註冊成員學號
+# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
+# 所對應到 data 的資料型別將會是數列
+data = open(url).read().split("\n")
+# 經過檢查 data 數列, 發現最後一個 element 為空字串, 因此利用 [:-1] 去掉數列的最後一個元素, -1 代表數列最後一個元素的索引
+#print(data[:-1])
+# 設定一個變數, 與修課成員學號數列對應
+stud = data[:-1]
+# 使用 random 模組中的 shuffle() 函式, 以隨機的方式排列 stud 數列內容
+random.shuffle(stud)
+# 設定 num 與 5 對應, 或將 5 整數值存入 num 變數所對應的記憶體位址
+num = 5
+# 利用 for 重複迴圈與 range() 變數, 列印出 (利用 print() 函式) 已經隨機排列次序的 stud 數列的最前面 num 個學號值
+for i in range(num):
+    print(stud[i])</pre>
+<p>心得:</p>
+<p></p>
+<h2>W10</h2>
 <p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/cp2022.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/377cfa22ffe45b8f55dbcca0e812a440/raw/e57802b95c9712b5cec14a91be574828c3706e0b/W10%2520%25E8%2580%2583%25E8%25A9%25A6%25E8%25AA%25BF%25E6%259F%25A5.py">考試調查</a></p>
 <h2>W11</h2>
 <p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/cp2022.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/377cfa22ffe45b8f55dbcca0e812a440/raw/e57802b95c9712b5cec14a91be574828c3706e0b/W11%2520%25E8%2580%2583%25E8%25A9%25A6%25E8%25AA%25BF%25E6%259F%25A5.py">考試結果</a></p>
@@ -366,7 +415,8 @@ x = 1
 y = 1
 # 利用 grid 函式畫出格線
 grid(x, y, w, h, num, num, pixel=1, color="black")</pre>
-<p>心得:</p><h2>W12</h2>
+<p>心得:</p>
+<h2>W12</h2>
 <p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/Brython.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/490451cb02b95031ad21522f117d9edf/raw/9faf1970f85977cd79331de4884b08c9af60081f/w12_hw.py">hw1 範例</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
 user_input_temp = input("請輸入攝氏溫度值:")
@@ -386,7 +436,8 @@ Fahrenheit = (user_input_temp*9/5) + 32
 # 到這裡, Fahrenheit 資料型別為浮點數, 而 user_input_temp 在第 8 行也轉為浮點數
 # 要將兩個浮點數與字串相加, 都必須透過 str() 轉為字串
 print("攝氏 " + str(user_input_temp) + " 度, 等於華氏 " + str(Fahrenheit) + " 度.")</pre>
-<div id="brython_div">心得:</div><h2>W13</h2>
+<div id="brython_div">心得:</div>
+<h2>W13</h2>
 <p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/cp2022.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/377cfa22ffe45b8f55dbcca0e812a440/raw/e57802b95c9712b5cec14a91be574828c3706e0b/w13%25E6%25BA%25AB%25E5%25BA%25A6%25E8%25BD%2589%25E6%258F%259B%25E7%25A8%258B%25E5%25BC%258Fex1.py">w13溫度轉換ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
 f-c*9/5+32
@@ -407,7 +458,8 @@ c = input("請輸入攝氏溫度值")
 #print(type(c))
 c= float(c)
 print("你輸入的攝氏溫度:" + str(c),"等於華氏溫度:" + str(c*9/5 +32))</pre>
-<p>心得:</p><h1>Brython</h1>
+<p>心得:</p>
+<h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>

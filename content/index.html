@@ -129,7 +129,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='cp2022.html'>cp2022</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W10.html'>W10</a><li><a href='W11.html'>W11</a><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='cp2022.html'>cp2022</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a><li><a href='W6.html'>W6</a><li><a href='W10.html'>W10</a><li><a href='W11.html'>W11</a><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,6 +141,26 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content"> <a href='cp2022.html'>Next</a> >> cp2022<br /><h1>About</h1>
+<p><a href="https://mdecp2022.github.io/site-zeng-wei-zhi/content/Brython.html?src=https://gist.githubusercontent.com/zeng-wei-zhi/072b6b918dad8c1c6022c53a9f17acc4/raw/77d38f70839c31af01a88452e8f500cbcd3cc650/w5_hw.py">W5_密碼產生器</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 導入亂數模組
+import random
+# 導入字串模組
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre>
+<pre>心得:<br/><br/><br/></pre>
+<p></p>
 <p>cmsite: wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
 <br /> <a href='cp2022.html'>Next</a> >> cp2022</div>
         
